@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -7,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IEntityRepository<T>
+
+    //generic constraint
+    //class : referans tip
+    //Herhangi bir class ı da yazmasın sadece istediğimizi yazsın
+        public interface IEntityRepository<T> where T : class ,IEntity
     {
         List<T> GetAll(Expression<Func<T,bool>> filter=null);
 
